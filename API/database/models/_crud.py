@@ -1,5 +1,6 @@
 from database import db
 
+
 class CRUDMixin:
     @classmethod
     def get(cls, pk):

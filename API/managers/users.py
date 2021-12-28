@@ -105,7 +105,9 @@ def delete_user(user_id: int) -> Response:
     user_data = user.to_dict()
     user.delete()
 
-    return Response.success({'deleted_user': user_data, 'message': 'User deleted.'}, Status.OK)
+    return Response.success(
+        {'deleted_user': user_data, 'message': 'User deleted.'}, Status.OK
+    )
 
 
 @res_err_handler

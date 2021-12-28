@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import Set
 from database.models._crud import CRUDMixin
-from sqlalchemy import or_
 
 import bcrypt
 
@@ -44,10 +43,10 @@ class User(CRUDMixin, db.Model):
 
     def check_password(self, password):
         return bcrypt.checkpw(password.encode(), self._password_hash.encode())
-    
+
     def __hash__(self) -> int:
         return self.id
-    
+
     def __eq__(self, other) -> bool:
         return self.id == other.id
 
@@ -64,9 +63,9 @@ class User(CRUDMixin, db.Model):
 
     def parents(self) -> Set['User']:
         from database.models import Parent
+
         all_parents = (
-            User.query
-            .join(Parent, Parent.parent_id == User.id)
+            User.query.join(Parent, Parent.parent_id == User.id)
             .filter(Parent.child_id == self.id)
             .all()
         )
@@ -74,9 +73,9 @@ class User(CRUDMixin, db.Model):
 
     def children(self):
         from database.models import Parent
+
         children = (
-            User.query
-            .join(Parent, Parent.child_id == User.id)
+            User.query.join(Parent, Parent.child_id == User.id)
             .filter(Parent.parent_id == self.id)
             .all()
         )
@@ -92,16 +91,14 @@ class User(CRUDMixin, db.Model):
 
     def siblings(self):
         from database.models import Sibling
-        
+
         siblings_from_db_1 = (
-            User.query
-            .join(Sibling, Sibling.sibling_id == User.id)
+            User.query.join(Sibling, Sibling.sibling_id == User.id)
             .filter(Sibling.user_id == self.id)
             .all()
         )
         siblings_from_db_2 = (
-            User.query
-            .join(Sibling, Sibling.user_id == User.id)
+            User.query.join(Sibling, Sibling.user_id == User.id)
             .filter(Sibling.sibling_id == self.id)
             .all()
         )

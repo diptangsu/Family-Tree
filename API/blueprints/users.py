@@ -1,6 +1,13 @@
 from flask import Blueprint, request
 
-from managers.users import create_user, get_user, get_user_parents, get_user_siblings, get_user_grandparents, get_user_children
+from managers.users import (
+    create_user,
+    get_user,
+    get_user_parents,
+    get_user_siblings,
+    get_user_grandparents,
+    get_user_children,
+)
 
 USERS_BLUEPRINT = Blueprint('users', __name__)
 

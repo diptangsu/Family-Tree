@@ -1,5 +1,10 @@
 from flask import Blueprint, request
-from managers.relations import create_parent, create_sibling, update_parent, delete_parent
+from managers.relations import (
+    create_parent,
+    create_sibling,
+    update_parent,
+    delete_parent,
+)
 
 
 RELATIONS_BLUEPRINT = Blueprint('relations', __name__)
