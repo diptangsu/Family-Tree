@@ -8,8 +8,5 @@ def authenticate(email, password):
 
 
 def identity(payload):
-    print('*' * 100)
-    print(payload)
     user_id = payload['identity']
-    print(user_id)
     return User.get(pk=user_id)
