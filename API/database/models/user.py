@@ -1,10 +1,10 @@
 from datetime import datetime
 from typing import Set
-from database.models._crud import CRUDMixin
 
 import bcrypt
 
 from database import db
+from database.models._crud import CRUDMixin
 
 
 class User(CRUDMixin, db.Model):

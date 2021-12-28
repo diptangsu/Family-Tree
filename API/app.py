@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 from werkzeug.exceptions import HTTPException
 
 from auth import authenticate, identity
-from blueprints import USERS_BLUEPRINT, RELATIONS_BLUEPRINT
+from blueprints import RELATIONS_BLUEPRINT, USERS_BLUEPRINT
 from database.db import db
 from helpers.http import Response
 
