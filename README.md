@@ -15,3 +15,8 @@ Simform Assignment
 | GET                 | /users/{id}/children     | Returns a list of all the children of a user     |
 | GET                 | /users/{id}/siblings     | Returns a list of all the siblings of a user     |
 | GET                 | /users/{id}/parents      | Returns a list of all the parents of a user      |
+
+---
+
+- The UI is incomplete.
+- There are tests for the API endpoints in api-test.ipynb.
